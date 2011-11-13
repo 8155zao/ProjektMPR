@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ProjektMPR" default="compile">
+
+	<property name="lib" location="lib">
+	</property>
+	<property name="bin" location="bin">
+	</property>
+	<property name="dist" location="dist">
+	</property>
+	<property name="src" location="src">
+	</property>
+	<property name="test" location="test">
+	</property>
+	<property name="testbin" location="testbin">
+	</property>
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${bin}" />
+		<mkdir dir="${dist}" />
+		<mkdir dir="${testbin}" />
+	</target>
+
+	<path id="classpath">
+		<fileset dir="${lib}" includes="**/*.jar">
+		</fileset>
+		<pathelement location="${bin}" />
+	</path>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" classpathref="classpath" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="dist/antdemo-${DSTAMP}.jar" basedir="bin">
+		</jar>
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin}">
+		</delete>
+		<delete dir="${dist}">
+		</delete>
+		<delete dir="${testbin}">
+		</delete>
+	</target>
+
+	<target name="run" depends="compile">
+		<java classname="com.example.antdemo.Main" classpathref="classpath" />
+	</target>
+
+	<target name="testcompile" depends="compile">
+		<javac srcdir="${test}" destdir="${testbin}" classpathref="classpath" includeantruntime="false">
+		</javac>
+	</target>
+
+	<target name="runtests" depends="testcompile">
+		<junit haltonerror="false" haltonfailure="false">
+			<classpath>
+				<fileset dir="${lib}" includes="**/*.jar">
+				</fileset>
+				<pathelement location="${bin}" />
+				<pathelement location="${testbin}" />
+			</classpath>
+
+			<batchtest todir="${testbin}">
+				<fileset dir="${test}" includes="**/*.java">
+				</fileset>
+				<formatter type="brief" usefile="false"/>
+			</batchtest>
+
+		</junit>
+	</target>
+
+
+</project>

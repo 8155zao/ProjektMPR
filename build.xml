@@ -48,7 +48,7 @@
 	 <junit fork="yes" printsummary="withOutAndErr">
 	 <formatter type="xml"/>
 	 <test name="test.WypozyczlniaTest" todir="${junit.output.dir}"/>
-	 <classpath refid="PrijektMPR.classpath"/>
+	 <classpath refid="ProjektMPR.classpath"/>
 	</junit>
 </target>
 	

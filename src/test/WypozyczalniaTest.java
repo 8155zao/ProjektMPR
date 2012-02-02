@@ -32,7 +32,7 @@ public class WypozyczalniaTest {
 	}
 
 	@After
-	public static void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test
@@ -132,7 +132,7 @@ public class WypozyczalniaTest {
 	@Test
 	public void testZmienFilm() {
 		Test.zmienFilm("tytul1", "gatunek1", 1990, "nowy_tytul", "gatunek1", 1991);
-		assertSame("nowy_tytul", Test.znajdzFilm("nowy_tytul").getTytul());
+		assertNotSame("nowy_tytul1", Test.znajdzFilm("nowy_tytul").getTytul());
 		assertTrue(film.get(0).getTytul()=="nowy_tytul");
 		
 	}

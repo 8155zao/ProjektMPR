@@ -13,6 +13,8 @@ this.Imie = imie;
 this.Nazwisko = nazwisko;
 }
 
+
+
 public int getNumer_klienta() {
 return Numer_klienta;
 }

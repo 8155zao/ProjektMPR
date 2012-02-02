@@ -5,7 +5,7 @@ import java.util.List;
 
 
 public class Wypozyczalnia {
-
+	
 private String Nazwa;
 List<Film> Filmy = new ArrayList<Film>();
 List<Klient> Klienci = new ArrayList<Klient>();

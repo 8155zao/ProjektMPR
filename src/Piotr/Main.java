@@ -3,6 +3,9 @@ package Piotr;
 import java.util.ArrayList;
 import java.util.List;
 
+import services.WypozyczalniaDBM;
+import services.FilmDBM;
+
 public class Main {
 
 
@@ -40,5 +43,25 @@ najlepsza.zmienKlient(11, "Władysław", "Bierut", 11, "Władysław", "Gomułka"
 
 najlepsza.wyswietlFilmy();
 najlepsza.wyswietlKlienci();
+
+
+WypozyczalniaDBM czlowiek = new WypozyczalniaDBM();
+FilmDBM film = new FilmDBM ();
+film.UsunWszystkieFilmy();
+czlowiek.UsunWszystkichKlientow();
+
+Klient klient1 = new Klient (1, "Tomasz", "Kowalski");
+czlowiek.DodajKlienta(klient1);
+Klient klient2 = new Klient (2, "Anna", "Nowak");
+czlowiek.DodajKlienta(klient2);
+
+Film film1 = new Film ("Odyseja kosmiczna 2001", "S-F", 1998);
+film.DodajFilm(film1, czlowiek.ZnajdzKlienta("Kowalski"));
+Film film2 = new Film("Odmienne stany swiadomosci", "S-F", 1989);
+film.DodajFilm(film2, czlowiek.ZnajdzKlienta("Kowalski"));
+Film film3 = new Film ("Ace Ventura", "Komedia", 2001);
+film.DodajFilm(film3 ,czlowiek.ZnajdzKlienta("Nowak"));
+
+
 }
 }

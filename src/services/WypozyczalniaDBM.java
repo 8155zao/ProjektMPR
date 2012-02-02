@@ -132,7 +132,7 @@ public class WypozyczalniaDBM
   			e.printStackTrace();
 	}
 	}
-  		public void UsunWszystkieOsoby() 
+  		public void UsunWszystkichKlientow() 
   	{
   			try 
   	{

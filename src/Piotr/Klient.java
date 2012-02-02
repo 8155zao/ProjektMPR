@@ -12,7 +12,7 @@ this.Numer_klienta = numer_klienta;
 this.Imie = imie;
 this.Nazwisko = nazwisko;
 }
-
+  
 
 
 public int getNumer_klienta() {

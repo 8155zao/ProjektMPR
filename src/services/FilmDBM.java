@@ -61,7 +61,7 @@ import Piotr.Film;
 		    e.printStackTrace();
 		}
 		}
-		  public List<Integer> ZnajdzKsiazkePoTytule (String tytul) {
+		  public List<Integer> ZnajdzFilmPoTytule (String tytul) {
 		  try 
 		{
 		    List<Integer> wyszukane = new ArrayList<Integer>();

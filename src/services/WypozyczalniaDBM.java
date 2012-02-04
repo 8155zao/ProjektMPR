@@ -51,7 +51,7 @@ public class WypozyczalniaDBM
 	}
 	
 
-	  DodajKlientaStmt = connect.prepareStatement("INSERT INTO Klienci (imie, nazwisko) VALUES (?, ?)");
+	  DodajKlientaStmt = connect.prepareStatement("INSERT INTO Klienci (klient_nr, imie, nazwisko) VALUES (?, ?, ?)");
 	  PobierzKlientaStmt = connect.prepareStatement("SELECT * FROM Klienci");
 	  ZnajdzKlientaStmt = connect.prepareStatement("SELECT * FROM Klienci WHERE nazwisko = ?");
 	  UsunKlientaStmt = connect.prepareStatement("DELETE FROM Klienci WHERE ID = ?");
@@ -69,8 +69,9 @@ public class WypozyczalniaDBM
 	  public void DodajKlienta (Klient k) {
 	  try
 	{
-		  	DodajKlientaStmt.setString(1, k.getImie());
-		  	DodajKlientaStmt.setString(2, k.getNazwisko());
+		    DodajKlientaStmt.setInt(1, k.getNumer_klienta());
+		  	DodajKlientaStmt.setString(2, k.getImie());
+		  	DodajKlientaStmt.setString(3, k.getNazwisko());
 		  	DodajKlientaStmt.executeUpdate();
 	}
 

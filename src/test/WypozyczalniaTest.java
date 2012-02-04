@@ -93,13 +93,16 @@ public class WypozyczalniaTest {
 
 	@Test
 	public void testWyswietlFilmy() {
+		assertFalse(film.size()==1);
+		assertTrue(film.size()==2);
 		
 	}
 
-	//@Test
-	//public void testWyswietlKlienci() {
-	//	fail("Not yet implemented");
-	//}
+	@Test
+	public void testWyswietlKlienci() {
+		assertFalse(klient.size()==4);
+		assertTrue(klient.size()==3);
+	}
 
 	@Test
 	public void testZnajdzFilm() {
@@ -107,10 +110,11 @@ public class WypozyczalniaTest {
 		assertNotNull(Test.znajdzFilm("tytul1"));
 	}
 
-	//@Test
-	//public void testZnajdzFilm_po_gatunku() {
-	//fail("Not yet implemented");
-	//}
+	@Test
+	public void testZnajdzFilm_po_gatunku() {
+		assertNull(Test.znajdzFilm_po_gatunku("gatunek3"));
+		assertNotNull(Test.znajdzFilm_po_gatunku("gatunek1"));
+	}
 
 	@Test
 	public void testZnajdzKlienta() {
@@ -145,10 +149,11 @@ public class WypozyczalniaTest {
 		assertSame("nowe_imie", Test.znajdzKlienta("nazwisko1").getImie());
 	}
 
-	//@Test
-	//public void testPokazFilmy_po_gatunku() {
-    //fail("Not yet implemented");
-	//}
+	@Test
+	public void testPokazFilmy_po_gatunku() {
+		assertFalse(film.size()==1);
+		assertTrue(film.size()==2);
+	}
 
 
 
